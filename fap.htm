@@ -1,0 +1,101 @@
+<!-- #include tool-top gui/blocks/tool-top.htm;image=#image;onclick=#onclick;1; -->
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_1; help_ext=FAP_1;1; -->
+<td ALIGN='left' width='100%'>
+    <b>Welcome to FAP!</b>
+    <br>
+     Please choose a directory in which your data and your structure solution is stored in. Please give the atoms for which you want to refine dispersion values below. You can also give a correction for the read-in energy values derived from your measurement folders. Good luck!
+</td>
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_2; help_ext=FAP_2;1; -->
+<td ALIGN='left' width='100%'>
+    <b><a href="spy.FAP.setBasePath()">Set working dir</a>
+</td>
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_2; help_ext=FAP_2;1; -->
+<td ALIGN='left' width='100%'>
+    <b><a href="spy.FAP.setSolutionPath()">Set solution path</a>
+</td>
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+<!-- #include tool-row-help gui\blocks\tool-row-help.htm;name='PATH';help_ext=Path;1 -->
+<td width='23%'>
+    <b>%Elements%:</b>
+</td>
+<td align='left'>
+    $+
+    html.Snippet("gui/snippets/input-text",
+    "name=element_string",
+    "width=100%",
+    "value=spy.GetParam('fap.element_string')",
+    "onchange=spy.SetParam('fap.element_string', html.GetValue('~name~'))")
+    $-
+</td>
+<!-- #include row_table_off gui\blocks\row_table_off.htm;1; -->
+<!-- #include tool-row-help gui\blocks\tool-row-help.htm;name=FAP_2;help_ext=Path;1 -->
+<td width='23%'>
+    <b>%Adjustment%:</b>
+</td>
+<td align='left'>
+    $+
+    html.Snippet("gui/snippets/input-text",
+    "name=adjustment_eV",
+    "width=100%",
+    "value=spy.GetParam('fap.adjustment_eV')",
+    "onchange=spy.SetParam('fap.adjustment_eV', html.GetValue('~name~'))")
+    $-
+</td>
+<!-- #include row_table_off gui\blocks\row_table_off.htm;1; -->
+
+<!-- #include tool-row-help gui\blocks\tool-row-help.htm;name=FAP_2;help_ext=Path;1 -->
+<td width='23%'>
+    <b>%Resolution / Angstroms%:</b>
+</td>
+<td align='left'>
+    $+
+    html.Snippet("gui/snippets/input-text",
+    "name=adjustment",
+    "width=100%",
+    "value=spy.GetParam('fap.resultion')",
+    "onchange=spy.SetParam('fap.resolution', html.GetValue('~name~'))")
+    $-
+</td>
+<!-- #include row_table_off gui\blocks\row_table_off.htm;1; -->
+
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_2; help_ext=FAP_2;1; -->
+    $+
+    html.Snippet("gui/snippets/gui-link-button",
+    "value='Start'",
+    "onclick=spy.FAP.print_formula()",
+    "bgcolor=GetVar(HtmlTableRowBgColour)",
+    "td1=<td width="29%" align='center'>
+    ",)
+    $-
+
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_2; help_ext=FAP_2;1; -->
+$+
+html.Snippet("gui/snippets/gui-link-button",
+"value='Extract disp data'",
+"onclick=spy.FAP.extract_disps()",
+"bgcolor=GetVar(HtmlTableRowBgColour)",
+"td1=<td width="29%" align='center'>
+",)
+$-
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=FAP_2; help_ext=FAP_2;1; -->
+<td width='2%' align="left">
+    $+
+      html.Snippet("gui/snippets/input-checkbox-td",
+      "name=Use NoSpherA2",
+      "label=Use NoSpherA2",
+      "checked=spy.GetParam('fap.use_nosphera2')",
+      "oncheck=spy.SetParam('fap.use_nosphera2','True')>>html.Update()",
+      "bgcolor=GetVar(HtmlTableRowBgColour)",
+      "onuncheck=spy.SetParam('fap.use_nosphera2','False')>>html.Update()"
+      )
+    $-
+  </td>
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+
+<!-- #include h3-FAP-extras $GetVar(FAP_plugin_path)\h3-FAP-extras.htm;gui\blocks\tool-h3-off.htm;image=h3-FAP_extras;onclick=;colspan=1;2; -->
+<!-- #include tool-footer gui/blocks/tool-footer.htm;colspan=2;1; -->

@@ -1,0 +1,22 @@
+
+fap{
+  element_string = ""
+  .type = str
+  
+  adjustment_eV = ""
+  .type = str
+
+  resolution = 0.0
+  .type = float
+
+  use_nosphera2 = True
+  .type = bool
+  gui{
+    location = 'tools'
+      .type = str
+      .help = The tab item where the FAP GUI shall appear.
+    before = 'images'
+      .type = str
+      .help = The tool before which the FAP GUI shall appear.
+    }
+}
